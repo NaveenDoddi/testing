@@ -7,14 +7,18 @@ import NavDropdown from 'react-bootstrap/NavDropdown';
 import React from 'react';
 import data1 from './database.json'
 var data = data1
+
 var arr = []
+
 function NavbarNews() {
   function searching(){
     
+    if(arr.length != 0){
+      arr = []
+    }
+    
     var sub = document.getElementById("input").value.toUpperCase()
-    Object.entries(data.articles).map((i)=>i[1].title.split(" ").map((j=> j.toUpperCase() == sub ? arr.push(i[1]):"")) && i[1].description.split(" ").map((j=> j.toUpperCase() == sub ? arr.push(i[1]) : "")))
-    // return "hello world!"
-    return arr
+    Object.entries(data.articles).map((i)=>i[1].title.split(" ").map((j=> j.toUpperCase() == sub ? arr.push(i[1]):"")))
   }
 
   return (
@@ -35,12 +39,13 @@ function NavbarNews() {
           <Form className="d-flex">
             <Form.Control
               type="search"
+              value="elon"
               placeholder="Search"
               className="me-2 text-primary"
               aria-label="Search"
               id='input'
             />
-            <Button variant="outline-primary" onClick={searching}>Search</Button>
+            <Button variant="outline-primary" onClick={searching} >Search</Button>
           </Form>
           <NavDropdown title="☰" className='btn btn-succes'>
               <NavDropdown.Item href="#action3">login</NavDropdown.Item>

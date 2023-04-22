@@ -1,28 +1,31 @@
 import React from "react";
+import NavbarNews from "./navbar.js";
+import { useState } from "react";
 
-import { lazy, Suspense } from 'react';
-import { useState,useEffect } from "react";
-// import { search } from "./navbar";
-// var arr = search()
-
-// arr.map((i)=>console.log(i))
 function Search(){
     
     const [arr1, setArr] = useState([])
     const [loding, setLoding] = useState(true)
+
     function run(){
         import('./navbar.js').then(module => {
             const arr = module.arr;
             setArr(arr)
             setLoding(false)
+            console.log(arr)
         })
     }
+
+    function reset(){
+        setLoding(true)
+        setArr([])
+    }
+
     if(loding){
-        return <button onClick={run}>loding...</button>
+        return <button onClick={run} href='/search'>loding...</button>
     }
     return(
 
-        // <div>yes</div>
         <div>
         {arr1.map((i)=>
         <>
@@ -38,8 +41,10 @@ function Search(){
             </a>
         </>
         )}
+        <button onClick={reset}>close</button>
         </div>
         
     )
+    
 }
 export default Search

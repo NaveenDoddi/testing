@@ -1,6 +1,8 @@
 import React from "react";
 import axios from "axios";
 import data1 from "./database.json"
+import NavbarNews from "./navbar";
+import CarasoulNews from "./carasoul";
 import { useState, useEffect } from "react";
 
 let jsonfile = data1
@@ -23,7 +25,11 @@ function News3(){
     // } 
     // Object.entries(data.articles).map((i)=>i[0] == 0 ? console.log(i[1]):0)
     return(
-       <div className="row">
+
+        <>
+        <NavbarNews />
+        <CarasoulNews />
+        <div className="row">
         
         {Object.entries(data.articles).map((i)=>i[0]>=60 && i[0]<80 ? 
         <>
@@ -42,7 +48,9 @@ function News3(){
         </>
         :"")}
         
-       </div>
+        </div>
+        </>
+       
        
     )
 
