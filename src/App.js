@@ -18,7 +18,7 @@ function App() {
             <Route path='/News2' element={<News2/>}/>
             <Route path='/News3' element={<News3/>}/>
             <Route path='/News4' element={<News4/>}/>
-            <Route path='/search' element={<Search/>}/>
+            {/* <Route path='/search' element={<Search/>}/> */}
         </Routes>
       </BrowserRouter>
       <PageNation />

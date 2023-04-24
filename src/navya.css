@@ -1,0 +1,25 @@
+table,td,th{
+    border: 2px solid green;
+    border-collapse: collapse;
+}
+th{
+    /* color: white; */
+    background-color: skyblue;
+}
+#image1{
+    height: 400px;
+    width: 400px;
+}
+#image2{
+    height: 200px;
+    width: 200px;
+}
+p{
+    color: red;
+    text-align:right;
+}
+#naveen{
+    color: green;
+    text-align: left;
+}
+

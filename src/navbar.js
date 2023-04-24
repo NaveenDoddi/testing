@@ -6,24 +6,28 @@ import Navbar from 'react-bootstrap/Navbar';
 import NavDropdown from 'react-bootstrap/NavDropdown';
 import React from 'react';
 import data1 from './database.json'
+
 var data = data1
 
 var arr = []
+export function searching(){
+    
+  if(arr.length != 0){
+    arr = []
+  }
+  
+  var sub = document.getElementById("input").value.toUpperCase()
+  Object.entries(data.articles).map((i)=>i[1].title.split(" ").map((j=> j.toUpperCase() == sub ? arr.push(i[1]):"")))
+  return arr
+
+}
 
 function NavbarNews() {
-  function searching(){
-    
-    if(arr.length != 0){
-      arr = []
-    }
-    
-    var sub = document.getElementById("input").value.toUpperCase()
-    Object.entries(data.articles).map((i)=>i[1].title.split(" ").map((j=> j.toUpperCase() == sub ? arr.push(i[1]):"")))
-  }
+
 
   return (
     <>
-    {searching}
+
     <image src="https://static.vecteezy.com/system/resources/previews/005/861/537/original/half-of-the-sun-sunrise-and-sunset-free-vector.jpg"></image>
     {/* navbar for the top of the page */}
     <Navbar bg="light">
@@ -64,5 +68,5 @@ function NavbarNews() {
     </>
   );
 }
-export { arr }
+
 export default NavbarNews;
