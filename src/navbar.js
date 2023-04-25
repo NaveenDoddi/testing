@@ -18,7 +18,6 @@ export function searching(){
   
   var sub = document.getElementById("input").value.toUpperCase()
   Object.entries(data.articles).map((i)=>i[1].title.split(" ").map((j=> j.toUpperCase() == sub ? arr.push(i[1]):"")))
-  return arr
 
 }
 
@@ -43,7 +42,6 @@ function NavbarNews() {
           <Form className="d-flex">
             <Form.Control
               type="search"
-              value="elon"
               placeholder="Search"
               className="me-2 text-primary"
               aria-label="Search"
@@ -68,5 +66,5 @@ function NavbarNews() {
     </>
   );
 }
-
+export { arr }
 export default NavbarNews;

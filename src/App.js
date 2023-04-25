@@ -11,7 +11,7 @@ import { BrowserRouter, Routes, Route } from "react-router-dom";
 function App() {
   return (
     <>
-    <Search />
+    
       <BrowserRouter>
         <Routes>
             <Route path='/' element={<News1/>}/>
@@ -21,6 +21,7 @@ function App() {
             {/* <Route path='/search' element={<Search/>}/> */}
         </Routes>
       </BrowserRouter>
+      <Search />
       <PageNation />
       
     </>
