@@ -5,24 +5,26 @@ import News2 from './news2';
 import News3 from './news3';
 import News4 from './news4';
 import Search from './search';
-
+import NavbarNews from './navbar.js';
+import CarasoulNews from './carasoul.js';
 import PageNation from './pagenation';
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 function App() {
   return (
     <>
+    <NavbarNews />
+    <Search />
+    <CarasoulNews />
+    <BrowserRouter>
+      <Routes>
+          <Route path='/' element={<News1/>}/>
+          <Route path='/News2' element={<News2/>}/>
+          <Route path='/News3' element={<News3/>}/>
+          <Route path='/News4' element={<News4/>}/>
+      </Routes>
+    </BrowserRouter>
     
-      <BrowserRouter>
-        <Routes>
-            <Route path='/' element={<News1/>}/>
-            <Route path='/News2' element={<News2/>}/>
-            <Route path='/News3' element={<News3/>}/>
-            <Route path='/News4' element={<News4/>}/>
-            {/* <Route path='/search' element={<Search/>}/> */}
-        </Routes>
-      </BrowserRouter>
-      <Search />
-      <PageNation />
+    <PageNation />
       
     </>
   );

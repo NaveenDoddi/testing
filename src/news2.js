@@ -1,8 +1,6 @@
 import React from "react";
 import axios from "axios";
 import data1 from "./database.json"
-import NavbarNews from "./navbar";
-import CarasoulNews from "./carasoul";
 import { useState, useEffect } from "react";
 
 let jsonfile = data1
@@ -26,14 +24,12 @@ function News2(){
     // Object.entries(data.articles).map((i)=>i[0] == 0 ? console.log(i[1]):0)
     return(
         <>
-        <NavbarNews />
-        <CarasoulNews />
         <div className="row">
         
         {Object.entries(data.articles).map((i)=>i[0]>=40 && i[0]<60 ? 
         <>
         <div className="col-sm-12 col-md-6 col-lg-4 img-fluid w-100%" style={{paddingBottom : "10px"}}>
-        <a href={i[1].url} target="blank" style={{color:"black", width:"400px"}}>
+        <a href={i[1].url} target="blank" style={{color:"black", width:"400px",textDecoration: "none"}}>
         <div className="card">
         <img src={i[1].urlToImage} style={{height:"200px"}} className="card-img-top" alt="no image"/>
         <div className="card-body" style={{height:"200px",overflow:"hidden"}}>

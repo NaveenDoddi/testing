@@ -27,11 +27,10 @@ function NavbarNews() {
   return (
     <>
 
-    <image src="https://static.vecteezy.com/system/resources/previews/005/861/537/original/half-of-the-sun-sunrise-and-sunset-free-vector.jpg"></image>
     {/* navbar for the top of the page */}
     <Navbar bg="light">
       <Container fluid>
-        <Navbar.Brand href="#" className='text-primary'> Kranthi</Navbar.Brand>
+        <Navbar.Brand href="#" className='text-primary'><img style={{height: "40px"}} src="ikranthiLogo.jpg"/>Kranthi</Navbar.Brand>
         <Navbar.Toggle aria-controls="navbarScroll" />
         <Navbar.Collapse id="navbarScroll">
           <Nav
