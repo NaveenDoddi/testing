@@ -1,22 +1,26 @@
 import Carousel from 'react-bootstrap/Carousel';
-import data1 from "./database.json"
+// import data1 from "./database.json"
+import axios from 'axios';
 import { useState, useEffect } from "react";
 
-let jsonfile = data1
+// let jsonfile = data1
 function CarasoulNews() {
-    const [data,setdata] = useState(jsonfile)
-    // const [loding, setLoding] = useState(true)
+    const [data,setdata] = useState('')
+    const [loding, setLoding] = useState(true)
     
     useEffect(()=>{
-        async function fetching(){
-            // let response = await axios.get("C:\Users\Doddi Naveen\Desktop\coding\my-react\src\database.json")
-            // let response = await axios.get("https://newsapi.org/v2/everything?q=tesla&from=2023-03-12&sortBy=publishedAt&apiKey=3d2fb6811a924bd9a605c27c01c7e619")    
-            // setdata(response.data)
-            // setLoding(false)
-            
-        }
-        fetching()
+      async function fetching(){
+        let response = await axios.get("https://newsapi.org/v2/everything?q=tesla&from=2023-03-26&sortBy=publishedAt&apiKey=5bc890c22cb44f9e932f3e4c67f99ede")    
+        setdata(response.data)
+        setLoding(false)
+          
+      }
+      fetching()
     },[])
+
+  if(loding){
+    return <p>loding...</p>
+  }
   return (
     <div>
         <Carousel>

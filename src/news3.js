@@ -1,26 +1,23 @@
 import React from "react";
 import axios from "axios";
-import data1 from "./database.json"
 import { useState, useEffect } from "react";
 
-let jsonfile = data1
 function News3(){
-    const [data,setdata] = useState(jsonfile)
-    // const [loding, setLoding] = useState(true)
+    const [data,setdata] = useState('')
+    const [loding, setLoding] = useState(true)
     
     useEffect(()=>{
         async function fetching(){
-            // let response = await axios.get("C:\Users\Doddi Naveen\Desktop\coding\my-react\src\database.json")
-            // let response = await axios.get("https://newsapi.org/v2/everything?q=tesla&from=2023-03-12&sortBy=publishedAt&apiKey=3d2fb6811a924bd9a605c27c01c7e619")    
-            // setdata(response.data)
-            // setLoding(false)
+            let response = await axios.get("https://newsapi.org/v2/everything?q=tesla&from=2023-03-26&sortBy=publishedAt&apiKey=5bc890c22cb44f9e932f3e4c67f99ede")    
+            setdata(response.data)
+            setLoding(false)
             
         }
         fetching()
     },[])
-    // if(loding){
-    //     return 0
-    // } 
+    if(loding){
+        return <p>loding...</p>
+    } 
     // Object.entries(data.articles).map((i)=>i[0] == 0 ? console.log(i[1]):0)
     return(
 
