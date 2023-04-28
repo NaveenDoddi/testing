@@ -4,13 +4,15 @@ import { useState, useEffect } from "react";
 
 function News4(){
     const [data,setdata] = useState('')
-    const [loding, setLoding] = useState(true)
+    const [loding, setLoading] = useState(true)
     
-    useEffect(()=>{
+    useEffect(() => {
         async function fetching(){
-            let response = await axios.get("https://newsapi.org/v2/everything?q=tesla&from=2023-03-26&sortBy=publishedAt&apiKey=5bc890c22cb44f9e932f3e4c67f99ede")    
+            
+            let response = await axios.get("https://newsapi.org/v2/everything?q=tesla&from=2023-03-28&sortBy=publishedAt&apiKey=87837d4baa484a0fba8427cc5388aaa2")
+            // arr = response.data
             setdata(response.data)
-            setLoding(false)
+            setLoading(false)
             
         }
         fetching()

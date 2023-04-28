@@ -5,24 +5,14 @@ import Nav from 'react-bootstrap/Nav';
 import Navbar from 'react-bootstrap/Navbar';
 import NavDropdown from 'react-bootstrap/NavDropdown';
 import React from 'react';
-import data1 from './database.json'
 
-var data = data1
+var searchingInput = ''
 
-var arr = []
-export function searching(){
-    
-  if(arr.length != 0){
-    arr = []
-  }
-  
-  var sub = document.getElementById("input").value.toUpperCase()
-  Object.entries(data.articles).map((i)=>i[1].title.split(" ").map((j=> j.toUpperCase() == sub ? arr.push(i[1]):"")))
-
+function searching(){  
+  searchingInput = document.getElementById("input").value
 }
 
 function NavbarNews() {
-
 
   return (
     <>
@@ -45,6 +35,7 @@ function NavbarNews() {
               className="me-2 text-primary"
               aria-label="Search"
               id='input'
+              
             />
             <Button variant="outline-primary" onClick={searching} >Search</Button>
           </Form>
@@ -65,5 +56,5 @@ function NavbarNews() {
     </>
   );
 }
-export { arr }
+export { searchingInput }
 export default NavbarNews;

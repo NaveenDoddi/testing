@@ -2,14 +2,18 @@ import React from "react";
 import axios from "axios";
 import { useState, useEffect } from "react";
 
+var arr = []
 function News2(){
     const [data,setdata] = useState('')
     const [loding, setLoding] = useState(true)
     
-    useEffect(()=>{
+    useEffect(() => {
         async function fetching(){
             
-            let response = await axios.get("https://newsapi.org/v2/everything?q=tesla&from=2023-03-26&sortBy=publishedAt&apiKey=5bc890c22cb44f9e932f3e4c67f99ede")    
+            let response = await axios.get("https://newsapi.org/v2/everything?q=tesla&from=2023-03-28&sortBy=publishedAt&apiKey=87837d4baa484a0fba8427cc5388aaa2")
+
+            arr = response.data
+            console.log("arr")
             setdata(response.data)
             setLoding(false)
             
@@ -29,7 +33,7 @@ function News2(){
         <div className="col-sm-12 col-md-6 col-lg-4 img-fluid w-100%" style={{paddingBottom : "10px"}}>
         <a href={i[1].url} target="blank" style={{color:"black", width:"400px",textDecoration: "none"}}>
         <div className="card">
-        <img src={i[1].urlToImage} style={{height:"200px"}} className="card-img-top" alt="no image"/>
+        {/* <img src={i[1].urlToImage} style={{height:"200px"}} className="card-img-top" alt="no image"/> */}
         <div className="card-body" style={{height:"200px",overflow:"hidden"}}>
             <h5 className="card-title" >{i[1].title}</h5>
             <div style={{overflow:"hidden",textAlign:"justify"}}  className="card-text">{i[1].description}</div>
@@ -45,5 +49,5 @@ function News2(){
         </>
     )
 }
-
+export { arr }
 export default News2

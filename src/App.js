@@ -12,8 +12,8 @@ import { BrowserRouter, Routes, Route } from "react-router-dom";
 function App() {
   return (
     <>
-    {/* <NavbarNews /> */}
-    {/* <Search /> */}
+    <NavbarNews />
+    <Search />
     <CarasoulNews />
     <BrowserRouter>
       <Routes>
