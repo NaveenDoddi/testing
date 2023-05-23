@@ -6,42 +6,18 @@ import { useState, useEffect } from "react";
 
 
 function Search(){
-  const [arr1, setArr] = useState('')
+  
   const [loading, setLoading] = useState(true)
-  const [data,setdata] = useState('')
-
-  useEffect(() => {
-    async function fetching(){
-        
-        let response = await axios.get("https://newsapi.org/v2/everything?q=tesla&from=2023-03-28&sortBy=publishedAt&apiKey=87837d4baa484a0fba8427cc5388aaa2")
-        // arr = response.data
-        setdata(response.data)
-        
-    }
-    fetching()
-},[])
-
-  useEffect(() => {
-     let timeout = setInterval(() => {
-      import('./navbar.js').then(module => {
-        const input = module.searchingInput;
-        if(input !== ""){
-          console.log(input)
-          setArr(input);
-          setLoading(false);
-          clearInterval(timeout);
-          
-        }
-      });
-    });
-  },[]);
+  var data = JSON.parse(sessionStorage.getItem("data"))
+  var input = sessionStorage.getItem("searchinInput")
+  if(input != undefined){
+    setLoading(false)
+  }
 
   // Object.entries(data.articles).map((i)=>i[1].title.split(" ").map((j)=> j.toLowerCase() === arr1.toLowerCase() ? console.log(i[1]) : ""))
 
   function reset(){
-    setLoading(true)
-    setArr([])
-    window.location.reload()   
+    sessionStorage.removeItem("searchingInput") 
   }
 
   if(loading){
@@ -53,7 +29,7 @@ function Search(){
     <button onClick={reset} className="btn btn-primary">close</button>
     <div className="row">
     
-    {Object.entries(data.articles).map((i)=>i[1].title.split(" ").map((j)=> j.toLowerCase() == arr1.toLowerCase() ?
+    {Object.entries(data.articles).map((i)=>i[1].title.split(" ").map((j)=> j.toLowerCase() == input.toLowerCase() ?
     <>
       <div className="col-sm-12 col-md-6 col-lg-4 img-fluid w-100%" style={{paddingBottom : "10px"}}>
       <a href={i[1].url} target="blank" style={{color:"black", width:"400px",textDecoration:"none"}}>

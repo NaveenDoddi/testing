@@ -1,26 +1,9 @@
 import React from "react";
-import axios from "axios";
-import { useState, useEffect } from "react";
 
 function News3(){
-    const [data,setdata] = useState('')
-    const [loding, setLoading] = useState(true)
-    
-    useEffect(() => {
-        async function fetching(){
-            
-            let response = await axios.get("https://newsapi.org/v2/everything?q=tesla&from=2023-03-28&sortBy=publishedAt&apiKey=87837d4baa484a0fba8427cc5388aaa2")
-            // arr = response.data
-            setdata(response.data)
-            setLoading(false)
-            
-        }
-        fetching()
-    },[])
-    if(loding){
-        return <p>loding...</p>
-    } 
-    // Object.entries(data.articles).map((i)=>i[0] == 0 ? console.log(i[1]):0)
+
+    var data = JSON.parse(sessionStorage.getItem("data"))
+
     return(
 
         <>

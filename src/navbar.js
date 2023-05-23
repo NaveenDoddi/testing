@@ -6,10 +6,8 @@ import Navbar from 'react-bootstrap/Navbar';
 import NavDropdown from 'react-bootstrap/NavDropdown';
 import React from 'react';
 
-var searchingInput = ''
-
 function searching(){  
-  searchingInput = document.getElementById("input").value
+  sessionStorage.setItem("searchingInput",document.getElementById("input").value)
 }
 
 function NavbarNews() {
@@ -56,5 +54,5 @@ function NavbarNews() {
     </>
   );
 }
-export { searchingInput }
+
 export default NavbarNews;
