@@ -5,12 +5,19 @@ import Nav from 'react-bootstrap/Nav';
 import Navbar from 'react-bootstrap/Navbar';
 import NavDropdown from 'react-bootstrap/NavDropdown';
 import React from 'react';
-
-function searching(){  
-  sessionStorage.setItem("searchingInput",document.getElementById("input").value)
-}
+import Search from './search';
+import { useState } from 'react';
 
 function NavbarNews() {
+  var [count, setCount] = useState(0)
+
+  function searching(){
+    
+    setCount(count++)
+    console.log(count)
+    sessionStorage.setItem("searchingInput",document.getElementById("input").value)
+  
+  }
 
   return (
     <>

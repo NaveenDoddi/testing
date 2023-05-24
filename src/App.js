@@ -36,7 +36,7 @@ function App() {
     <>
     <SetingData />
     <NavbarNews />
-    {/* <Search /> */}
+    <Search />
     <CarasoulNews />
     <BrowserRouter>
       <Routes>
