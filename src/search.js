@@ -1,24 +1,29 @@
 import { useState, useEffect } from "react";
 
-function Search(input){
+
+function Search(){
   
-  const [loading, setLoading] = useState(true)
+  // const [loading, setLoading] = useState(true)
   var data = JSON.parse(sessionStorage.getItem("data"))
+
+  // var input = null
   var input = sessionStorage.getItem("searchinInput")
+
   console.log(input)
-  if(input != null){
-    setLoading(false)
-  }
+
+  // if(input != null){
+  //   setLoading(false)
+  // }
   // Object.entries(data.articles).map((i)=>i[1].title.split(" ").map((j)=> j.toLowerCase() === arr1.toLowerCase() ? console.log(i[1]) : ""))
 
   function reset(){
     sessionStorage.removeItem("searchingInput") 
   }
 
-  if(loading){
-    return <p></p>
+  // if(loading){
+  //   return <p></p>
     
-  }
+  // }
   return(
     <>
     <button onClick={reset} className="btn btn-primary">close</button>

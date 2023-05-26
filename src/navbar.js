@@ -5,18 +5,55 @@ import Nav from 'react-bootstrap/Nav';
 import Navbar from 'react-bootstrap/Navbar';
 import NavDropdown from 'react-bootstrap/NavDropdown';
 import React from 'react';
-import Search from './search';
+// import Search from './search';
 import { useState } from 'react';
 
 function NavbarNews() {
-  var [count, setCount] = useState(0)
+  var data = JSON.parse(sessionStorage.getItem("data"))
+
+  var [display, setDisplay] = useState(false)
+  var [value, setValue] = useState("")
 
   function searching(){
+
+    var input = document.getElementById("input").value
+
+    setValue(input)
     
-    setCount(count++)
-    console.log(count)
-    sessionStorage.setItem("searchingInput",document.getElementById("input").value)
+    setDisplay(true)
+  }
+
+  function Search(){
   
+    function reset(){
+      setValue("")
+      setDisplay(false)
+    }
+
+    return(
+      <>
+      
+      <div className="row">
+      <button onClick={reset} className="btn btn-light" style={{textAlign:"right",fontSize:"30px"}}>X</button>
+      {Object.entries(data.articles).map((i)=>i[1].title.split(" ").map((j)=> j.toLowerCase() == value.toLowerCase() ?
+      <>
+        <div className="col-sm-12 col-md-6 col-lg-4 img-fluid w-100%" style={{paddingBottom : "10px"}}>
+        <a href={i[1].url} target="blank" style={{color:"black", width:"400px",textDecoration:"none"}}>
+        <div className="card">
+        <img src={i[1].urlToImage} style={{height:"200px"}} className="card-img-top" alt="no image"/>
+        <div className="card-body" style={{height:"200px", overflow:"hidden"}}>
+          <h5 className="card-title" >{i[1].title}</h5>
+          <div style={{overflow:"hidden",textAlign:"justify"}}  className="card-text">{i[1].description}</div>
+        </div>
+        </div>
+        </a>
+        </div>
+      </>
+      :""))}
+      </div>
+      </>
+      
+    )
   }
 
   return (
@@ -40,9 +77,10 @@ function NavbarNews() {
               className="me-2 text-primary"
               aria-label="Search"
               id='input'
+              onChange={searching}
               
             />
-            <Button variant="outline-primary" onClick={searching} >Search</Button>
+          {/* <Button variant="outline-primary" onClick={searching}>Search</Button> */}
           </Form>
           <NavDropdown title="☰" className='btn btn-succes'>
               <NavDropdown.Item href="#action3">login</NavDropdown.Item>
@@ -57,7 +95,8 @@ function NavbarNews() {
         </Navbar.Collapse>
       </Container>
     </Navbar>
-    
+
+    {display && <Search value={value}/>}
     </>
   );
 }
