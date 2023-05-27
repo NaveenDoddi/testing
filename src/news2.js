@@ -6,7 +6,7 @@ function News2(){
     return(
         <>
         <div className="row">
-        
+        <p className="h1 text-center text-light">Top News</p>
         {Object.entries(data.articles).map((i)=>i[0]>=40 && i[0]<60 ? 
         <>
         <div className="col-sm-12 col-md-6 col-lg-4 img-fluid w-100%" style={{paddingBottom : "10px"}}>

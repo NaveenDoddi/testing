@@ -1,4 +1,3 @@
-import Button from 'react-bootstrap/Button';
 import Container from 'react-bootstrap/Container';
 import Form from 'react-bootstrap/Form';
 import Nav from 'react-bootstrap/Nav';
@@ -15,11 +14,9 @@ function NavbarNews() {
   var [value, setValue] = useState("")
 
   function searching(){
-
     var input = document.getElementById("input").value
 
     setValue(input)
-    
     setDisplay(true)
   }
 
@@ -28,14 +25,16 @@ function NavbarNews() {
     function reset(){
       setValue("")
       setDisplay(false)
+
     }
 
     return(
       <>
       
       <div className="row">
-      <button onClick={reset} className="btn btn-light" style={{textAlign:"right",fontSize:"30px"}}>X</button>
-      {Object.entries(data.articles).map((i)=>i[1].title.split(" ").map((j)=> j.toLowerCase() == value.toLowerCase() ?
+      <div style={{textAlign:"right"}}><button onClick={reset} className="btn btn-dark">X</button></div>
+      
+      {Object.entries(data.articles).map((i)=>i[1].title.split(" ").map((j) => value.split(" ").map((k)=> k.toLowerCase() == j.toLowerCase() ?
       <>
         <div className="col-sm-12 col-md-6 col-lg-4 img-fluid w-100%" style={{paddingBottom : "10px"}}>
         <a href={i[1].url} target="blank" style={{color:"black", width:"400px",textDecoration:"none"}}>
@@ -49,7 +48,8 @@ function NavbarNews() {
         </a>
         </div>
       </>
-      :""))}
+      
+      :"")))}
       </div>
       </>
       
