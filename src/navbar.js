@@ -32,7 +32,7 @@ function NavbarNews() {
       <>
       
       <div className="row">
-      <div style={{textAlign:"right"}}><button onClick={reset} className="btn btn-dark">X</button></div>
+      <div style={{textAlign:"right"}}><button onClick={reset} className="btn btn-primary">X</button></div>
       
       {Object.entries(data.articles).map((i)=>i[1].title.split(" ").map((j) => value.split(" ").map((k)=> k.toLowerCase() == j.toLowerCase() ?
       <>
@@ -74,7 +74,7 @@ function NavbarNews() {
             <Form.Control
               type="search"
               placeholder="Search"
-              className="me-2 text-primary"
+              className="me-2 text-primary border-primary"
               aria-label="Search"
               id='input'
               onChange={searching}

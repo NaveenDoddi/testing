@@ -4,7 +4,7 @@ import News1 from './news.js';
 import News2 from './news2';
 import News3 from './news3';
 import News4 from './news4';
-import Search from './search';
+import Stories from './stories';
 import NavbarNews from './navbar.js';
 import CarasoulNews from './carasoul.js';
 import PageNation from './pagenation';
@@ -16,6 +16,7 @@ function App() {
     <>
     <SetingData />
     <NavbarNews />
+    <Stories />
     <CarasoulNews />
     <BrowserRouter>
       <Routes>

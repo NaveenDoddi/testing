@@ -1,7 +1,30 @@
 body{
     padding: 20px;
-    background-color: rgb(48, 47, 47);
+    /* background-color: rgb(48, 47, 47); */
 }
 .run{
     padding: 50px;
+}
+.storiesDiv{
+    height: 60px;
+    width: 100%;
+    overflow-x:auto;
+    white-space: nowrap;
+    overflow-y: scroll;
+    
+    /* background-color: red; */
+}
+.storiesDiv::-webkit-scrollbar{
+    display: none;
+}
+.storiesSmallDiv{
+    height: 60px;
+    width: 60px;
+    padding-top: 12px;
+    text-align: center;
+    overflow-x:hidden;
+    border: 2px solid black;
+    border-radius: 100%;
+    display: inline-block;
+    border-radius: 100%;
 }
